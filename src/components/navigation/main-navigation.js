@@ -9,6 +9,9 @@ export default function MainNavigation() {
     const navigate = useNavigate();
     //const { user, isAdmin, logOutUser } = useContext(UserContext);
 
+    const user = false;
+    const isAdmin = false;
+
     const signOutHandler = async () => {
         //logOutUser();
         navigate('/');
