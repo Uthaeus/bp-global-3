@@ -11,6 +11,7 @@ import AdminUsers from "./components/admin/users/admin-users";
 import NewUser from "./components/admin/users/new-user";
 import NewOrder from "./components/orders/new-order";
 import UserDetail from "./components/admin/users/user-detail";
+import OrderDetail from "./components/orders/order-detail";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/orders/:id",
+        element: <OrderDetail />,
+      }
     ],
   },
   {

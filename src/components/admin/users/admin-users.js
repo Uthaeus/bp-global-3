@@ -22,8 +22,8 @@ function AdminUsers() {
                 <div className="admin-users-table-body">
                     {users.map((user) => (
                         <Link key={user.id} className="admin-users-table-item" to={`/admin/users/${user.id}`}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
+                            <p>{user.name}</p>
+                            <p>{user.email}</p>
                         </Link>
                     ))}
                 </div>
