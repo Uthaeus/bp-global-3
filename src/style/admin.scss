@@ -64,3 +64,19 @@
         }
     }
 }
+
+.admin-user {
+    min-height: calc(100vh - 90px);
+    padding: 2rem 1rem;
+
+    .admin-user-title {
+        font-size: 2.5em;
+        margin: 3rem 2rem;
+        color: $blue400;
+    }
+
+    .admin-user-form {
+        width: 70%;
+        margin: 2rem auto;
+    }
+}

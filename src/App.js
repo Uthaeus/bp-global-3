@@ -10,6 +10,7 @@ import Admin from "./components/admin/admin";
 import AdminUsers from "./components/admin/users/admin-users";
 import NewUser from "./components/admin/users/new-user";
 import NewOrder from "./components/orders/new-order";
+import UserDetail from "./components/admin/users/user-detail";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/new-user",
         element: <NewUser />,
+      },
+      {
+        path: "/admin/users/:id",
+        element: <UserDetail />,
       },
       {
         path: "/admin/new-order",
