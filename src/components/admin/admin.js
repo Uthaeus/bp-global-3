@@ -57,7 +57,7 @@ function Admin() {
                                 </tbody>
                             </table>
 
-                            <button className="btn btn-secondary admin-button" onClick={() => setAdminContent('')}>Close Table</button>
+                            <button className="btn btn-secondary mt-3" onClick={() => setAdminContent('')}>Close Table</button>
                         </>
                     )}
 
@@ -67,7 +67,7 @@ function Admin() {
 
                             {/* <NewOrder customers={users} /> */}
 
-                            <button className="btn btn-secondary admin-button" onClick={() => setAdminContent('')}>Close Table</button>
+                            <button className="btn btn-secondary mt-3" onClick={() => setAdminContent('')}>Close Table</button>
                         </>
                     )}
                 </div>

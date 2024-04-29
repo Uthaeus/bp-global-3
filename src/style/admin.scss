@@ -20,8 +20,8 @@
 
             &:hover {
                 cursor: pointer;
-                color: $blue500;
-                border-bottom-color: $blue500;
+                color: $blue400;
+                border-bottom-color: $blue400;
                 transform: scale(1.04);
             }
         }
@@ -47,6 +47,30 @@
             min-height: calc(100vh - 240px);
             display: flex;
             flex-direction: column;
+
+            .admin-content-title {
+                font-size: 2em;
+                font-weight: 500;
+                color: $blue500;
+                margin-left: 15%;
+                margin-bottom: 2rem;
+            }
+
+            .admin-table {
+                width: 70%;
+                margin: 0 auto;
+
+                thead {
+                    border-bottom: 1px solid $silver;
+                    font-size: 1.6em;
+                    color: $blue400;
+                }
+
+                tbody {
+                    font-size: 1.4em;
+                    color: $black2;
+                }
+            }
         }
     }
 }
