@@ -15,16 +15,21 @@ function UserForm({ user }) {
         }
     });
 
-    const submitHandler = (data) => {
+    const submitHandler = async (data) => {
         console.log(data);
 
-        addUser({
-            name: data.name,
-            email: data.email,
-            id: Math.random().toString(),
-            role: "user",
-        }).then (() => navigate("/admin/users"))
-        .catch((err) => console.error(err));
+        try {
+            addUser({
+                name: data.name,
+                email: data.email,
+                id: Math.random().toString(),
+                role: "user",
+            });
+        } catch (error) {
+            console.log(error);
+        } finally {
+            navigate("/admin/users");
+        }
     }
 
     return (
