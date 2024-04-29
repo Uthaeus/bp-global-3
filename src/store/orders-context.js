@@ -10,7 +10,7 @@ export const OrdersContext = createContext({
     deleteOrder: () => {}
 });
 
-export default OrdersContextProvider = ({ children }) => {
+const OrdersContextProvider = ({ children }) => {
     const [orders, setOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -43,3 +43,5 @@ export default OrdersContextProvider = ({ children }) => {
 
     return <OrdersContext.Provider value={value}>{!isLoading && children}</OrdersContext.Provider>;
 }
+
+export default OrdersContextProvider;

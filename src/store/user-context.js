@@ -10,7 +10,7 @@ export const UserContext = createContext({
     logOutUser: () => {}
 });
 
-export default UserContextProvider = ({ children }) => {
+const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -34,3 +34,5 @@ export default UserContextProvider = ({ children }) => {
 
     return <UserContext.Provider value={value}>{!isLoading && children}</UserContext.Provider>;
 }
+
+export default UserContextProvider;
