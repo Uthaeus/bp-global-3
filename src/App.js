@@ -7,7 +7,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Admin from "./components/admin/admin";
-import Users from "./components/admin/users/users";
+import AdminUsers from "./components/admin/users/admin-users";
 import NewUser from "./components/admin/users/new-user";
 import NewOrder from "./components/orders/new-order";
 
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin/users",
-        element: <Users />,
+        element: <AdminUsers />,
       },
       {
         path: "/admin/new-user",

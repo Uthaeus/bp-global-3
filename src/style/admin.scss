@@ -1,52 +1,64 @@
 
 .admin {
-    display: grid;
-    grid-template-columns: 20% 80%;
-
     
+    .admin-title {
+        font-size: 3em;
+        margin-top: 3rem;
+        margin-left: 2rem;
+        color: $blue400;
+    }
+}
 
-    .admin-body {
-        display: flex;
-        flex-direction: column;
+.admin-users {
+    min-height: calc(100vh - 90px);
+    padding: 2rem 1rem;
 
-        .admin-header {
-            height: 150px;
+    .admin-users-title {
+        font-size: 2.5em;
+        margin: 3rem 2rem;
+        color: $blue400;
+    }
 
-            .admin-title {
-                margin: 2rem 0;
-                margin-left: 2rem;
-                font-size: 3em;
-                font-weight: bold;
-                color: $black;
-            }
+    .admin-users-table {
+        width: 70%;
+        margin: 2rem auto;
+        border: 1px solid $black2;
+        border-radius: 8px;
+        overflow: hidden;
+
+        .admin-users-table-header {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            background-color: $silver;
+            border-bottom: 1px  solid $black2;
+            padding: 0 0.5rem;
+            color: $black2;
+            font-size: 1.4em;
         }
 
-        .admin-content {
-            min-height: calc(100vh - 240px);
+        .admin-users-table-body {
             display: flex;
             flex-direction: column;
 
-            .admin-content-title {
-                font-size: 2em;
-                font-weight: 500;
-                color: $blue500;
-                margin-left: 15%;
-                margin-bottom: 2rem;
-            }
+            .admin-users-table-item {
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+                border-bottom: 1px solid $black2;
+                text-decoration: none;
+                padding: 3px 0.5rem;
+                color: $blue300;
+                font-size: 1.2em;
+                transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
-            .admin-table {
-                width: 70%;
-                margin: 0 auto;
-
-                thead {
-                    border-bottom: 1px solid $silver;
-                    font-size: 1.6em;
+                &:hover {
+                    cursor: pointer;
                     color: $blue400;
+                    background-color: aliceblue;
+                    transform: scale(1.02);
                 }
 
-                tbody {
-                    font-size: 1.4em;
-                    color: $black2;
+                &:last-child {
+                    border-bottom: none;
                 }
             }
         }

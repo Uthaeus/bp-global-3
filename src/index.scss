@@ -37,6 +37,7 @@ code {
     padding: 2rem 1rem;
 
     .admin-menu-item {
+        text-decoration: none;
         font-size: 1.5em;
         font-weight: bold;
         margin: 1rem 0;
@@ -50,6 +51,11 @@ code {
             border-bottom-color: $blue400;
             transform: scale(1.04);
         }
+    }
+
+    .menu-item-active {
+        color: $blue400;
+        border-bottom-color: $blue400;
     }
   }
 }
