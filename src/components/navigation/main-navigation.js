@@ -1,19 +1,16 @@
 import { NavLink, Link, useNavigate } from "react-router-dom";
-//import { useContext } from "react";
+import { useContext } from "react";
 
-//import { UserContext } from "../store/user-context";
+import { UserContext } from "../../store/user-context";
 
 import logo from '../../assets/images/bp_global_logo.png';
 
 export default function MainNavigation() {
     const navigate = useNavigate();
-    //const { user, isAdmin, logOutUser } = useContext(UserContext);
-
-    const user = false;
-    const isAdmin = false;
+    const { user, isAdmin, logOutUser } = useContext(UserContext);
 
     const signOutHandler = async () => {
-        //logOutUser();
+        logOutUser();
         navigate('/');
     }
     
