@@ -7,7 +7,8 @@ import { dummyOrders } from "./dummy/dummy-orders";
 export const OrdersContext = createContext({
     orders: [],
     addOrder: () => {},
-    deleteOrder: () => {}
+    deleteOrder: () => {},
+    updateOrder: () => {}
 });
 
 const OrdersContextProvider = ({ children }) => {
@@ -35,10 +36,15 @@ const OrdersContextProvider = ({ children }) => {
         setOrders(orders.filter(order => order.id !== id));
     }
 
+    const updateOrder = (order) => {
+        setOrders(orders.map(o => o.id === order.id ? order : o));
+    }
+
     const value = {
         orders,
         addOrder,
-        deleteOrder
+        deleteOrder,
+        updateOrder
     }
 
     return <OrdersContext.Provider value={value}>{!isLoading && children}</OrdersContext.Provider>;

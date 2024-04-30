@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { UsersContext } from "../../store/users-context";
+import { OrdersContext } from "../../store/orders-context";
 
 function OrderForm({ order }) {
     const { users } = useContext(UsersContext);
     const navigate = useNavigate();
     const [userId, setUserId] = useState("");
+    const { addOrder, updateOrder } = useContext(OrdersContext);
 
     const {
         register,
@@ -19,12 +21,40 @@ function OrderForm({ order }) {
     useEffect(() => {
         if (order) {
             reset(order);
+            setUserId(order.uid);
         }
     }, [order, reset]);
 
     const submitHandler = (data) => {
 
         console.log(data);
+
+        if (order) {
+            // TODO: Update order
+            const updatedOrder = {
+                uid: userId,
+                customer_name: data.customer_name,
+                order_number: data.order_number,
+                created_at: order.created_at,
+                updated_at: new Date().toISOString(),
+            }
+            console.log('updatedOrder', updatedOrder);
+
+            updateOrder(updatedOrder);
+
+        } else {
+            const NewOrder = {
+                customer_name: data.customer_name,
+                order_number: data.order_number,
+                created_at: new Date().toISOString(),
+                uid: userId
+            }
+            console.log('NewOrder', NewOrder);
+
+            addOrder(NewOrder);
+        }
+
+        
     }
 
     return (
