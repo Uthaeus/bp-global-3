@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import { OrdersContext } from "../../store/orders-context";
@@ -11,15 +11,15 @@ function OrderDetail() {
     const [order, setOrder] = useState({});
 
     useEffect(() => {
-        setOrder(orders.find((order) => order.id === id));
+        setOrder(orders.find((order) => +order.id === +id));
     }, [id, orders]);
 
     return (
         <div className="order-detail">
             <div className="order-detail-header">
-                <h1 className="order-detail-header-title">Order Number: {order?.order_number}</h1>
-                <h2 className="order-detail-header-customer">Customer: {order?.customer_name}</h2>
-                <h2 className="order-detail-header-date">Order Date: {order?.created_at}</h2>
+                <h1 className="order-detail-header-title">Order Number: <span className="mx-2">{order?.order_number}</span></h1>
+                <h2 className="order-detail-header-customer">Customer: <span className="mx-2">{order?.customer_name}</span></h2>
+                <h2 className="order-detail-header-date">Order Date: <span className="mx-2">{order?.created_at}</span></h2>
             </div>
 
             <div className="order-detail-body">
@@ -27,7 +27,8 @@ function OrderDetail() {
             </div>
 
             <div className="order-detail-actions">
-                {isAdmin && <Link className="btn btn-success" to={`/orders/${order?.id}/edit`}>Edit Order</Link>}
+                <Link className="btn btn-primary mx-2" to={'/'}>Home</Link>
+                {isAdmin && <Link className="btn btn-success mx-2" to={`/orders/${order?.id}/edit`}>Edit Order</Link>}
             </div>
         </div>
     );
