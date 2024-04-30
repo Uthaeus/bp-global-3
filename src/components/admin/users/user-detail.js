@@ -12,7 +12,7 @@ function UserDetail() {
     const [userOrders, setUserOrders] = useState([]);
 
     useEffect(() => {
-        setUser(users.find((user) => user.id === id));
+        setUser(users.find((user) => +user.id === +id));
     }, [id, users]);
 
     useEffect(() => {
@@ -25,11 +25,6 @@ function UserDetail() {
             <h2 className="admin-user-detail-email">Customer Email: {user?.email}</h2>
 
             <div className="admin-user-detail-orders">
-
-                <div className="admin-user-detail-orders-header">
-                    <p className="admin-user-detail-orders-header-item">Order Number</p>
-                    <p className="admin-user-detail-orders-header-item">Order Date</p>
-                </div>
 
                 <div className="admin-user-detail-orders-body">
                     {userOrders.length === 0 && <p>No orders found</p>}

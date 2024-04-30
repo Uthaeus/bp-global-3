@@ -25,13 +25,24 @@ function OrderForm({ order }) {
         }
     }, [order, reset]);
 
+    const userIdChangeHandler = (event) => {
+        const newUserId = users.find((user) => user.name === event.target.value);
+
+        setUserId(newUserId.id);
+    }
+
     const submitHandler = (data) => {
 
         console.log(data);
 
+        let orderId;
+
         if (order) {
             // TODO: Update order
+            orderId = order.id;
+
             const updatedOrder = {
+                id: orderId,
                 uid: userId,
                 customer_name: data.customer_name,
                 order_number: data.order_number,
@@ -43,7 +54,11 @@ function OrderForm({ order }) {
             updateOrder(updatedOrder);
 
         } else {
+            // get order id
+            orderId = Math.random().toString();
+
             const NewOrder = {
+                id: orderId,
                 customer_name: data.customer_name,
                 order_number: data.order_number,
                 created_at: new Date().toISOString(),
@@ -54,17 +69,17 @@ function OrderForm({ order }) {
             addOrder(NewOrder);
         }
 
-        
+        navigate(`/orders/${orderId}`);
     }
 
     return (
         <form className="order-form" onSubmit={handleSubmit(submitHandler)}>
             <div className="form-group">
                 <label htmlFor="customer_name">Customer</label>
-                <select id="customer_name" {...register("customer_name", { required: true })}>
+                <select id="customer_name" {...register("customer_name", { required: true })} onChange={userIdChangeHandler}>
                     <option value="">Select Customer</option>
                     {users.map((user) => (
-                        <option key={user.id} value={user.name} onChange={() => setUserId(user.id)}>{user.name}</option>
+                        <option key={user.id} value={user.name}>{user.name}</option>
                     ))}
                 </select>
                 {errors.customer_name && <p className="text-danger">Customer is required</p>}
