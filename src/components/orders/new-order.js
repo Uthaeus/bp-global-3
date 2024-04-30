@@ -1,10 +1,13 @@
 
+import OrderForm from "./order-form";
 
 function NewOrder() {
 
     return (
-        <div>
-            <h1>New Order</h1>
+        <div className="new-edit-order">
+            <h1 className="new-edit-order-title">New Order</h1>
+
+            <OrderForm />
         </div>
     );
 }
