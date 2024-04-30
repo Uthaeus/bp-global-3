@@ -24,17 +24,24 @@ function UserDetail() {
             <h1 className="admin-user-detail-title">Customer Name: {user?.name}</h1>
             <h2 className="admin-user-detail-email">Customer Email: {user?.email}</h2>
 
-            <div className="admin-user-detail-orders">
+            <div className="admin-user-detail-orders-body">
+                {userOrders.length === 0 && <p className="admin-user-detail-orders-text">No orders found</p>}
+                
+                {userOrders.length > 0 && (
+                    <div className="admin-user-detail-orders">
+                        <div className="admin-user-detail-orders-header">
+                            <p className="admin-user-detail-orders-header-title">Order Number</p>
+                            <p className="admin-user-detail-orders-header-title">Order Date</p>
+                        </div>
 
-                <div className="admin-user-detail-orders-body">
-                    {userOrders.length === 0 && <p>No orders found</p>}
-                    {userOrders.map((order) => (
-                        <Link key={order.id} className="admin-user-detail-orders-item" to={`/orders/${order.id}`}>
-                            <p>{order.order_number}</p>
-                            <p>{order.created_at}</p>
-                        </Link>
-                    ))}
-                </div>
+                        {userOrders.map((order) => (
+                            <Link className="admin-user-detail-orders-item" key={order.id}>
+                                <p className="admin-user-detail-orders-item-title">{order.order_number}</p>
+                                <p className="admin-user-detail-orders-item-title">{order.created_at}</p>
+                            </Link>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

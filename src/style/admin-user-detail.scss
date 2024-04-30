@@ -1,0 +1,72 @@
+
+.admin-user-detail {
+    min-height: calc(100vh - 90px);
+    padding: 2rem;
+
+    .admin-user-detail-title {
+        font-size: 2em;
+        margin-bottom: 0.5rem;
+        color: $blue400;
+    }
+
+    .admin-user-detail-email {
+        font-size: 1.8em;
+        margin-bottom: 2rem;
+        color: $blue300;
+    }
+
+    .admin-user-detail-orders-body {
+        width: 70%;
+        margin: 0 auto;
+
+        .admin-user-detail-orders-text {
+            font-size: 1.5em;
+            color: $black;
+            text-align: center;
+        }
+
+        .admin-user-detail-orders {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid $silver;
+            border-radius: 8px;
+            overflow: hidden;
+
+            .admin-user-detail-orders-header {
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+                background-color: $silver;
+                border-bottom: 1px  solid $black2;
+                padding: 0 0.5rem;
+                align-items: baseline;
+
+                .admin-user-detail-orders-header-title {
+                    font-size: 1.4em;
+                    color: $black2;
+                }
+            }
+
+            .admin-user-detail-orders-item {
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+                border-bottom: 1px solid $black2;
+                text-decoration: none;
+                padding: 3px 0.5rem;
+                color: $blue300;
+                font-size: 1.2em;
+                transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $blue400;
+                    background-color: aliceblue;
+                    transform: scale(1.02);
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
