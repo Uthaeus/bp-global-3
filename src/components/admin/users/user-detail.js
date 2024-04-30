@@ -35,7 +35,7 @@ function UserDetail() {
                         </div>
 
                         {userOrders.map((order) => (
-                            <Link className="admin-user-detail-orders-item" key={order.id}>
+                            <Link to={`/orders/${order.id}`} className="admin-user-detail-orders-item" key={order.id}>
                                 <p className="admin-user-detail-orders-item-title">{order.order_number}</p>
                                 <p className="admin-user-detail-orders-item-title">{order.created_at}</p>
                             </Link>
