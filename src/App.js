@@ -9,6 +9,7 @@ import Contact from "./pages/contact";
 import Admin from "./components/admin/admin";
 import AdminUsers from "./components/admin/users/admin-users";
 import NewUser from "./components/admin/users/new-user";
+import EditUser from "./components/admin/users/edit-user";
 import NewOrder from "./components/orders/new-order";
 import EditOrder from "./components/orders/edit-order";
 import UserDetail from "./components/admin/users/user-detail";
@@ -52,12 +53,16 @@ const router = createBrowserRouter([
         element: <AdminUsers />,
       },
       {
-        path: "/admin/new-user",
+        path: "/admin/users/new",
         element: <NewUser />,
       },
       {
         path: "/admin/users/:id",
         element: <UserDetail />,
+      },
+      {
+        path: "/admin/users/:id/edit",
+        element: <EditUser />,
       },
       {
         path: "/admin/orders/new",

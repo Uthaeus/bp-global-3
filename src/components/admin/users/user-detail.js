@@ -43,6 +43,11 @@ function UserDetail() {
                     </div>
                 )}
             </div>
+
+            <div className="admin-user-detail-actions mt-5">
+                <Link className="btn btn-primary mx-2" to={'/admin/users'}>Back</Link>
+                <Link className="btn btn-success mx-2" to={`/admin/users/${user?.id}/edit`}>Edit User</Link>
+            </div>
         </div>
     );
 }
