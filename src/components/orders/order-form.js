@@ -76,7 +76,7 @@ function OrderForm({ order }) {
         <form className="order-form" onSubmit={handleSubmit(submitHandler)}>
             <div className="form-group">
                 <label htmlFor="customer_name">Customer</label>
-                <select id="customer_name" {...register("customer_name", { required: true })} onChange={userIdChangeHandler}>
+                <select id="customer_name" className="form-select" {...register("customer_name", { required: true })} onChange={userIdChangeHandler}>
                     <option value="">Select Customer</option>
                     {users.map((user) => (
                         <option key={user.id} value={user.name}>{user.name}</option>
@@ -87,7 +87,7 @@ function OrderForm({ order }) {
 
             <div className="form-group">
                 <label htmlFor="order_number">Order Number</label>
-                <input type='text' id='order_number' {...register("order_number", { required: true })} />
+                <input type='text' id='order_number' className="form-control" {...register("order_number", { required: true })} />
                 {errors.order_number && <p className="text-danger">Order Number is required</p>}
             </div>
 
