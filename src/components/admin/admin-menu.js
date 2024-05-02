@@ -9,7 +9,7 @@ function AdminMenu() {
             <NavLink to="/admin/users/new" className={({ isActive }) => isActive ? "admin-menu-item menu-item-active" : "admin-menu-item"}>Create New User</NavLink>
             <NavLink to="/admin/orders/new" className={({ isActive }) => isActive ? "admin-menu-item menu-item-active" : "admin-menu-item"}>Create New Order</NavLink>
             <hr />
-            <NavLink to="/admin/edit-account" className={({ isActive }) => isActive ? "admin-menu-item menu-item-active" : "admin-menu-item"}>Edit Account</NavLink>
+            <NavLink to="/account/edit" className={({ isActive }) => isActive ? "menu-item-active mt-5" : "mt-5"}>Edit Account</NavLink>
         </div>
     );
 }

@@ -14,6 +14,7 @@ import NewOrder from "./components/orders/new-order";
 import EditOrder from "./components/orders/edit-order";
 import UserDetail from "./components/admin/users/user-detail";
 import OrderDetail from "./components/orders/order-detail";
+import EditAccount from "./components/account/edit-account";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/orders/:id",
         element: <OrderDetail />,
+      },
+      {
+        path: "/account/edit",
+        element: <EditAccount />,
       }
     ],
   },
