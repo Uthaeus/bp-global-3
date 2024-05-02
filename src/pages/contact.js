@@ -3,8 +3,6 @@ import { useForm } from 'react-hook-form';
 
 //import { UserContext } from '../store/user-context';
 
-import image from '../assets/images/forest_image.png';
-
 function Contact() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     //const { user } = useContext(UserContext);
@@ -24,8 +22,8 @@ function Contact() {
     }
 
     return (
-        <div className="contact" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-            <h2 className="contact-title">Contact Us</h2>
+        <div className="contact">
+            <h2 className="contact-title mb-5">Contact Us</h2>
 
             <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className='row'>
@@ -55,7 +53,7 @@ function Contact() {
                     </div>
                 </div>
 
-                <div className="form-group mb-3">
+                <div className="form-group mb-4">
                     <label htmlFor="message">Message*</label>
                     <textarea
                         id="message"
@@ -66,7 +64,7 @@ function Contact() {
                     {errors.message && <span className="error">This field is required</span>}
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary w-100">Submit</button>
             </form>
         </div>
     );

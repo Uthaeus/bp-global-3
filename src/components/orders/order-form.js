@@ -74,7 +74,7 @@ function OrderForm({ order }) {
 
     return (
         <form className="order-form" onSubmit={handleSubmit(submitHandler)}>
-            <div className="form-group">
+            <div className="form-group mb-3">
                 <label htmlFor="customer_name">Customer</label>
                 <select id="customer_name" className="form-select" {...register("customer_name", { required: true })} onChange={userIdChangeHandler}>
                     <option value="">Select Customer</option>
@@ -85,7 +85,7 @@ function OrderForm({ order }) {
                 {errors.customer_name && <p className="text-danger">Customer is required</p>}
             </div>
 
-            <div className="form-group">
+            <div className="form-group mb-4">
                 <label htmlFor="order_number">Order Number</label>
                 <input type='text' id='order_number' className="form-control" {...register("order_number", { required: true })} />
                 {errors.order_number && <p className="text-danger">Order Number is required</p>}
