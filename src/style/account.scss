@@ -41,7 +41,7 @@
             font-size: 1.5em;
             font-weight: 600;
             color: $black;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
         }
 
         .account-orders-text {
@@ -52,7 +52,7 @@
         }
 
         .account-orders {
-            width: 70%;
+            width: 80%;
             margin: 0 auto;
             border: 1px solid $black;
             border-radius: 8px;
@@ -66,9 +66,9 @@
                 
                 .account-orders-header-item {
                     margin: 0;
-                    padding: 0;
-                    margin-left: 0.5rem;
-                    font-size: 1.2em;
+                    padding: 0.25rem 0;
+                    margin-left: 1rem;
+                    font-size: 1.3em;
                     font-weight: 600;
                     color: $black;
                 }
@@ -83,9 +83,9 @@
 
                 .account-orders-item-title {
                     margin: 0;
-                    padding: 0;
-                    margin-left: 0.5rem;
-                    font-size: 1.1em;
+                    padding: 0.25rem 0;
+                    margin-left: 1rem;
+                    font-size: 1.2em;
                     font-weight: 500;
                     color: $blue300;
                 }
@@ -94,6 +94,10 @@
                     background-color: aliceblue;
                     cursor: pointer;
                     transform: scale(1.02);
+                }
+
+                &:last-child {
+                    border-bottom: none;
                 }
             }
         }

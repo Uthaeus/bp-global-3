@@ -32,3 +32,10 @@ export const dummyAdmin = {
     email: 'admin@me.com',
     role: 'admin'
 }
+
+export const dummyUser = {
+    id: 2,
+    name: 'Company 2',
+    email: 'bJt8I@example.com',
+    role: 'user'
+}
