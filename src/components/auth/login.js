@@ -11,10 +11,10 @@ function Login() {
     }
 
     return (
-        <div className="login">
-            <h1 className="login-title">Login</h1>
+        <div className="auth">
+            <h1 className="auth-title">Login</h1>
 
-            <form className="login-form mb-3" onSubmit={handleSubmit(submitHandler)}>
+            <form className="auth-form mb-3" onSubmit={handleSubmit(submitHandler)}>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input
@@ -41,7 +41,7 @@ function Login() {
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
 
-            <button className="login-back-btn btn btn-info" onClick={() => navigate("/")}>Home</button>
+            <button className="auth-back-btn btn btn-info" onClick={() => navigate("/")}>Home</button>
         </div>
     );
 }
