@@ -8,6 +8,7 @@ export const UserContext = createContext({
     isAdmin: false,
     setUser: () => {},
     setIsAdmin: () => {},
+    updateUser: () => {},
     logOutUser: () => {}
 });
 
@@ -22,6 +23,10 @@ const UserContextProvider = ({ children }) => {
         setIsLoading(false);
     }, []);
 
+    const updateUser = (data) => {
+        setUser(data);
+    }
+
     const logOutUser = () => {
         setUser(null);
         setIsAdmin(false);
@@ -30,6 +35,7 @@ const UserContextProvider = ({ children }) => {
     const value = {
         user,
         isAdmin,
+        updateUser,
         logOutUser
     }
 

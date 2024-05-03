@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 import { UserContext } from "../../store/user-context";
 
 function EditAccount() {
-    const { user } = useContext(UserContext);
+    const { user, updateUser } = useContext(UserContext);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
@@ -16,8 +17,32 @@ function EditAccount() {
     }, [user, reset]);
 
     const submitHandler = async (data) => {
+        try {
+            console.log('updating user:', data);
 
-        console.log(data);
+            const updatedUser = {
+                id: user?.id,
+                name: data.name,
+                email: data.email,
+                role: user?.role
+            }
+
+            if (data.password !== data.confirmPassword) {
+                alert("Passwords do not match");
+                return;
+            } else if (data.password !== "" && data.confirmPassword !== "") {
+                // TODO: Update password
+                console.log('updating password');
+            }
+
+            // TODO: Update user
+
+            updateUser(updatedUser);
+        } catch (error) {
+            console.log('user update error:', error);
+        } finally {
+            navigate("/account");
+        }
     }
 
     if (isLoading) {
@@ -77,8 +102,13 @@ function EditAccount() {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Update</button>
+                <button type="submit" className="btn btn-primary w-25">Update</button>
+                <Link className="btn btn-danger ms-4" to="/account">Cancel</Link>
             </form>
+
+            <div className="auth-actions">
+                <Link className="btn btn-secondary" to="/account">Back</Link>
+            </div>
         </div>
     );
 }
