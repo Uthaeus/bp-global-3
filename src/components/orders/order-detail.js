@@ -1,18 +1,30 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import { OrdersContext } from "../../store/orders-context";
 import { UserContext } from "../../store/user-context";
 
 function OrderDetail() {
-    const { orders } = useContext(OrdersContext);
+    const { orders, deleteOrder } = useContext(OrdersContext);
     const { isAdmin } = useContext(UserContext);
     const { id } = useParams();
     const [order, setOrder] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         setOrder(orders.find((order) => +order.id === +id));
     }, [id, orders]);
+
+    const deleteHandler = async () => {
+        try {
+            console.log('deleting order:', id);
+            deleteOrder(id);
+        } catch (error) {
+            console.log('order delete error:', error);
+        } finally {
+            navigate('/admin/users');
+        }
+    }
 
     return (
         <div className="order-detail">
@@ -30,7 +42,7 @@ function OrderDetail() {
                     <>
                         <Link className="btn btn-primary mx-2" to='/admin/users'>Back</Link>
                         <Link className="btn btn-success mx-2" to={`/admin/orders/${order?.id}/edit`}>Edit Order</Link>
-                        <button className="btn btn-danger mx-2">Delete Order</button>
+                        <button className="btn btn-danger mx-2" onClick={deleteHandler}>Delete Order</button>
                     </>        
                 ) : (
                     <>

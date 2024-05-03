@@ -29,14 +29,17 @@ const OrdersContextProvider = ({ children }) => {
     }, [ user, isAdmin ]);
 
     const addOrder = (order) => {
+        // add firestore add
         setOrders([...orders, order]);
     }
 
     const deleteOrder = (id) => {
+        // add firestore delete
         setOrders(orders.filter(order => order.id !== id));
     }
 
     const updateOrder = (order) => {
+        // add firestore update
         setOrders(orders.map(o => o.id === order.id ? order : o));
     }
 

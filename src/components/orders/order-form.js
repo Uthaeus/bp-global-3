@@ -93,7 +93,7 @@ function OrderForm({ order }) {
 
             {/* image input */}
 
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">{order ? "Update" : "Create"}</button>
         </form>
     );
 }

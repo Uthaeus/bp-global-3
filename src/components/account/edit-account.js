@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../store/user-context";
 
 function EditAccount() {
-    const { user, updateUser } = useContext(UserContext);
+    const { user, isAdmin, updateUser } = useContext(UserContext);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
+
+    const navPath = isAdmin ? "/admin" : "/account";
 
     useEffect(() => {
         reset({ name: user?.name, email: user?.email });
@@ -41,7 +43,7 @@ function EditAccount() {
         } catch (error) {
             console.log('user update error:', error);
         } finally {
-            navigate("/account");
+            navigate(navPath);
         }
     }
 
@@ -103,11 +105,11 @@ function EditAccount() {
                 </div>
 
                 <button type="submit" className="btn btn-primary w-25">Update</button>
-                <Link className="btn btn-danger ms-4" to="/account">Cancel</Link>
+                <Link className="btn btn-danger ms-4" to={navPath}>Cancel</Link>
             </form>
 
             <div className="auth-actions">
-                <Link className="btn btn-secondary" to="/account">Back</Link>
+                <Link className="btn btn-secondary" to={navPath}>Back</Link>
             </div>
         </div>
     );
