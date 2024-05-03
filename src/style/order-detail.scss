@@ -1,6 +1,7 @@
 .order-detail {
     min-height: calc(100vh - 90px);
     padding: 2rem;
+    position: relative;
 
     .order-detail-header {
         width: 60%;
@@ -34,7 +35,9 @@
     }
 
     .order-detail-actions {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
         display: flex;
-        margin-top: 2rem;
     }
 }

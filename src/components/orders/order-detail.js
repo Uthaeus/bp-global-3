@@ -27,8 +27,18 @@ function OrderDetail() {
             </div>
 
             <div className="order-detail-actions">
-                <Link className="btn btn-primary mx-2" to={`/`}>Back</Link>
-                {isAdmin && <Link className="btn btn-success mx-2" to={`/admin/orders/${order?.id}/edit`}>Edit Order</Link>}
+                {isAdmin ? (
+                    <>
+                        <Link className="btn btn-primary mx-2" to='/admin/users'>Back</Link>
+                        <Link className="btn btn-success mx-2" to={`/admin/orders/${order?.id}/edit`}>Edit Order</Link>
+                        <button className="btn btn-danger mx-2">Delete Order</button>
+                    </>        
+                ) : (
+                    <>
+                        <Link to='/account' className="btn btn-secondary mx-2">Back</Link>
+                        <Link to='/' className="btn btn-primary mx-2">Home</Link>
+                    </>
+                )}
             </div>
         </div>
     );
