@@ -1,0 +1,107 @@
+
+.account {
+    min-height: calc(100vh - 90px);
+    padding: 2rem 18%;
+    position: relative;
+
+    .account-header {
+        padding: 2rem;
+        border-bottom: 1px solid $silver;
+
+        .account-title {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: $blue400;
+            margin-bottom: 1rem;
+        }
+
+        .account-email {
+            font-size: 2em;
+            font-weight: 600;
+            color: $blue300;
+            margin-bottom: 1rem;
+        }
+
+        .account-edit-link {
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.04);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .account-body {
+        padding: 2rem;
+
+        .account-orders-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: $black;
+            margin-bottom: 1rem;
+        }
+
+        .account-orders-text {
+            font-size: 1.2em;
+            font-weight: 400;
+            color: $black;
+            text-align: center;
+        }
+
+        .account-orders {
+            width: 70%;
+            margin: 0 auto;
+            border: 1px solid $black;
+            border-radius: 8px;
+            overflow: hidden;
+
+            .account-orders-header {
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+                background-color: $silver;
+                border-bottom: 1px  solid $black;
+                
+                .account-orders-header-item {
+                    margin: 0;
+                    padding: 0;
+                    margin-left: 0.5rem;
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    color: $black;
+                }
+            }
+
+            .account-orders-item {
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+                text-decoration: none;
+                border-bottom: 1px  solid $black;
+                transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+                .account-orders-item-title {
+                    margin: 0;
+                    padding: 0;
+                    margin-left: 0.5rem;
+                    font-size: 1.1em;
+                    font-weight: 500;
+                    color: $blue300;
+                }
+
+                &:hover {
+                    background-color: aliceblue;
+                    cursor: pointer;
+                    transform: scale(1.02);
+                }
+            }
+        }
+    }
+
+    .account-actions {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
