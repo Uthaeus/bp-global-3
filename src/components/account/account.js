@@ -39,7 +39,7 @@ function Account() {
             </div>
 
             <div className="account-actions mt-5">
-                <Link className="btn btn-primary mx-2" to={'/'}>Back</Link>
+                <Link className="btn btn-primary mx-2" to={'/'}>Home</Link>
             </div>
         </div>
     );

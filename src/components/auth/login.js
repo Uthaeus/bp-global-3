@@ -21,6 +21,7 @@ function Login() {
                         type="email"
                         id="email"
                         className="form-control"
+                        autoFocus={true}
                         {...register("email", { required: true })}
                     />
                     {errors.email && <span className="error">This field is required</span>}

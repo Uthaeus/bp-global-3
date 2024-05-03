@@ -5,7 +5,8 @@
     position: relative;
 
     .account-header {
-        padding: 2rem;
+        position: relative;
+        padding: 1rem 2rem;
         border-bottom: 1px solid $silver;
 
         .account-title {
@@ -23,6 +24,9 @@
         }
 
         .account-edit-link {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
             font-size: 1.1em;
             text-decoration: none;
             transition: transform 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
