@@ -29,9 +29,8 @@ function MainFooter() {
                 </a>
             </div>
 
-            <div className='d-flex mb-2'>
+            <div className='text-center mb-2'>
                 <Link to='/login' className='footer-auth'>login</Link>
-                <Link to='/signup' className='footer-auth'>register</Link>
             </div>
 
             <div className='footer-policies-wrapper'>

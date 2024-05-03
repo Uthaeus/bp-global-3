@@ -42,7 +42,6 @@ export default function MainNavigation() {
                     ) : (
                         <>
                             <NavLink to='/login' className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Login</NavLink>
-                            <NavLink to='/signup' className={({isActive}) => isActive ? 'nav-link link-active' : 'nav-link'}>Register</NavLink>
                         </>
                     )}
                 </div>
