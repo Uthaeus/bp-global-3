@@ -3,15 +3,24 @@
     min-height: calc(100vh - 90px);
     padding: 2rem;
 
+    .admin-user-detail-header {
+        width: 80%;
+        margin-left: 5%;
+        margin-bottom: 8%;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $silver;
+        position: relative;
+    }
+
     .admin-user-detail-title {
-        font-size: 2em;
+        font-size: 2.3em;
         margin-bottom: 0.5rem;
         color: $blue400;
     }
 
     .admin-user-detail-email {
-        font-size: 1.8em;
-        margin-bottom: 2rem;
+        margin-left: 1rem;
+        font-size: 1.5em;
         color: $blue300;
     }
 

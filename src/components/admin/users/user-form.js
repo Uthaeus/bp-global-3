@@ -5,31 +5,40 @@ import { useNavigate } from "react-router";
 import { UsersContext } from "../../../store/users-context";
 
 function UserForm({ user }) {
-    const { addUser } = useContext(UsersContext);
+    const { addUser, updateUser } = useContext(UsersContext);
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     useEffect(() => {
         if (user) {
-            reset(user);
+            reset({
+                name: user.name,
+                email: user.email
+            });
         }
-    });
+    }, [user, reset]);
 
     const submitHandler = async (data) => {
         console.log(data);
 
-        try {
+        if (user) {
+            let updatedUser = {
+                ...user,
+                name: data.name,
+                email: data.email
+            };
+            
+            updateUser(updatedUser);
+        } else {
             addUser({
                 name: data.name,
                 email: data.email,
                 id: Math.random().toString(),
                 role: "user",
             });
-        } catch (error) {
-            console.log(error);
-        } finally {
-            navigate("/admin/users");
         }
+
+        navigate("/admin/users");
     }
 
     return (
@@ -57,7 +66,7 @@ function UserForm({ user }) {
                 {errors.email && <span className="text-danger">This field is required</span>}
             </div>
 
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">{ user ? "Update User" : "Add User"}</button>
         </form> 
     );
 }

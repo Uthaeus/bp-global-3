@@ -21,8 +21,10 @@ function UserDetail() {
 
     return (
         <div className="admin-user-detail">
-            <h1 className="admin-user-detail-title">Customer Name: {user?.name}</h1>
-            <h2 className="admin-user-detail-email">Customer Email: {user?.email}</h2>
+            <div className="admin-user-detail-header">
+                <h1 className="admin-user-detail-title">{user?.name}</h1>
+                <h2 className="admin-user-detail-email">{user?.email}</h2>
+            </div>
 
             <div className="admin-user-detail-orders-body">
                 {userOrders.length === 0 && <p className="admin-user-detail-orders-text">No orders found</p>}

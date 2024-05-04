@@ -7,6 +7,7 @@ import { dummyUsers } from "./dummy/dummy-users";
 export const UsersContext = createContext({
     users: [],
     addUser: () => {},
+    updateUser: () => {},
     deleteUser: () => {}
 });
 
@@ -27,6 +28,10 @@ const UsersContextProvider = ({ children }) => {
         setUsers([...users, user]);
     }
 
+    const updateUser = (user) => {
+        setUsers(users.map(u => u.id === user.id ? user : u));
+    }
+
     const deleteUser = (id) => {
         setUsers(users.filter(user => user.id !== id));
     }
@@ -34,6 +39,7 @@ const UsersContextProvider = ({ children }) => {
     const value = {
         users,
         addUser,
+        updateUser,
         deleteUser
     }
 
