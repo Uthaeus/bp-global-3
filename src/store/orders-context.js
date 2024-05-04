@@ -35,7 +35,7 @@ const OrdersContextProvider = ({ children }) => {
 
     const deleteOrder = (id) => {
         // add firestore delete
-        setOrders(orders.filter(order => order.id !== id));
+        setOrders(orders.filter(order => +order.id !== +id));
     }
 
     const updateOrder = (order) => {
