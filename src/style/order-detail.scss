@@ -30,8 +30,19 @@
     }
 
     .order-detail-body {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+
+        .order-detail-image {
+            width: 100%;
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.02);
+            }
+        }
     }
 
     .order-detail-actions {

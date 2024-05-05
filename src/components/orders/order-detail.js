@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 
 import { OrdersContext } from "../../store/orders-context";
 import { UserContext } from "../../store/user-context";
+import { ModalContext } from "../../store/modal-context";
 
 // sample image for testing
 import image from '../../assets/images/machine-main.jpeg';
@@ -21,6 +22,11 @@ function OrderDetail() {
     const images = [
         image,
         image,
+        image,
+        image,
+        image,
+        image,
+        image,
         image
     ]
 
@@ -29,6 +35,7 @@ function OrderDetail() {
     }, [id, orders]);
 
     const openModalHandler = (image) => {
+        console.log('open modal');
         setModalImage(image);
         openModal();
     }

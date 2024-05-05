@@ -15,6 +15,7 @@ export const ModalContextProvider = ({ children }) => {
     }
 
     const closeModal = () => {
+        console.log('close modal');
         setModalOpen(false);
     }
 
