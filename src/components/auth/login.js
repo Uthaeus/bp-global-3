@@ -1,9 +1,22 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { useState } from "react";
+
+import AuthModal from "./auth-modal";
 
 function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const forgotPasswordHandler = () => {
+        console.log('forgot password');
+        setModalOpen(true);
+    }
+
+    const closeModalHandler = () => {
+        setModalOpen(false);
+    }
 
     const submitHandler = async (data) => {
 
@@ -12,10 +25,13 @@ function Login() {
 
     return (
         <div className="auth">
+            {modalOpen && <AuthModal closeModal={closeModalHandler} />}
+
             <h1 className="auth-title">Login</h1>
 
             <form className="auth-form mb-3" onSubmit={handleSubmit(submitHandler)}>
-                <div className="form-group">
+
+                <div className="form-group mb-3">
                     <label htmlFor="email">Email</label>
                     <input
                         type="email"
@@ -36,8 +52,10 @@ function Login() {
                         {...register("password", { required: true })}
                     />
                     {errors.password && <span className="error">This field is required</span>}
-                </div>
 
+                    <p className="auth-forgot-password" onClick={forgotPasswordHandler}>Forgot Password?</p>
+                </div>
+                
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
 
