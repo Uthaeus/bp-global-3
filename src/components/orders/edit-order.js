@@ -29,12 +29,12 @@ function EditOrder() {
     }
 
     return (
-        <div className="edit-order">
-            <h1 className="edit-order-title">Edit Order</h1>
+        <div className="new-edit-order">
+            <h1 className="new-edit-order-title">Edit Order</h1>
 
             <OrderForm order={order} />
 
-            <div className="edit-order-actions">
+            <div className="new-edit-order-actions">
                 <Link className="btn btn-primary mx-2" to='/admin/users'>Back</Link>
                 <button className="btn btn-danger mx-2" onClick={deleteHandler}>Delete Order</button>
             </div>

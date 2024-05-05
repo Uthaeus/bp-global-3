@@ -4,16 +4,21 @@
     position: relative;
 
     .order-detail-header {
-        width: 60%;
+        width: 80%;
         display: flex;
         flex-direction: column;
         padding: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         border-bottom: 1px solid $silver;
 
         .order-detail-header-title {
             font-size: 2em;
             margin-bottom: 0.5rem;
+            color: $black2;
+        }
+
+        .order-detail-order-number {
+            font-size: 1.4em;
             color: $blue400;
         }
 

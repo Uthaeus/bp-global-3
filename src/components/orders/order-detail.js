@@ -55,7 +55,9 @@ function OrderDetail() {
             {modalOpen && <Modal image={modalImage} closeModal={closeModalHandler} />}
 
             <div className="order-detail-header">
-                <h1 className="order-detail-header-title">Order Number: <span className="mx-2">{order?.order_number}</span></h1>
+                
+                <h1 className="order-detail-header-title">Order Number: <span className="order-detail-order-number mx-2">{order?.order_number}</span></h1>
+                {isAdmin && <p className="order-detail-header-customer">Customer: <span className="mx-2">{order?.customer_name}</span></p>}
                 <h2 className="order-detail-header-date">Order Date: <span className="mx-2">{order?.created_at}</span></h2>
             </div>
 
