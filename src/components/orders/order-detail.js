@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from "react";
 
 import { OrdersContext } from "../../store/orders-context";
 import { UserContext } from "../../store/user-context";
-import { ModalContext } from "../../store/modal-context";
 
 // sample image for testing
 import image from '../../assets/images/machine-main.jpeg';
@@ -13,21 +12,16 @@ import Modal from "../modal/modal";
 function OrderDetail() {
     const { orders, deleteOrder } = useContext(OrdersContext);
     const { isAdmin } = useContext(UserContext);
-    const { modalOpen, openModal, closeModal } = useContext(ModalContext);
     const { id } = useParams();
     const [order, setOrder] = useState({});
     const [modalImage, setModalImage] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
     const navigate = useNavigate();
 
     const images = [
         image,
         image,
         image,
-        image,
-        image,
-        image,
-        image,
-        image
     ]
 
     useEffect(() => {
@@ -37,7 +31,12 @@ function OrderDetail() {
     const openModalHandler = (image) => {
         console.log('open modal');
         setModalImage(image);
-        openModal();
+        setModalOpen(true);
+    }
+
+    const closeModalHandler = () => {
+        setModalOpen(false);
+        setModalImage(null);
     }
 
     const deleteHandler = async () => {
@@ -53,7 +52,8 @@ function OrderDetail() {
 
     return (
         <div className="order-detail">
-            {modalOpen && <Modal image={modalImage} closeModal={closeModal} />}
+            {modalOpen && <Modal image={modalImage} closeModal={closeModalHandler} />}
+
             <div className="order-detail-header">
                 <h1 className="order-detail-header-title">Order Number: <span className="mx-2">{order?.order_number}</span></h1>
                 <h2 className="order-detail-header-date">Order Date: <span className="mx-2">{order?.created_at}</span></h2>
