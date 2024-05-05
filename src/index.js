@@ -7,18 +7,21 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import UserContextProvider from './store/user-context';
 import UsersContextProvider from './store/users-context';
 import OrdersContextProvider from './store/orders-context';
+import { ModalContextProvider } from './store/modal-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <UserContextProvider>
-      <UsersContextProvider>
-        <OrdersContextProvider>
-          <App />
-        </OrdersContextProvider>
-      </UsersContextProvider>
-    </UserContextProvider>
+    <ModalContextProvider>
+      <UserContextProvider>
+        <UsersContextProvider>
+          <OrdersContextProvider>
+            <App />
+          </OrdersContextProvider>
+        </UsersContextProvider>
+      </UserContextProvider>
+    </ModalContextProvider>
   </React.StrictMode>
 );
 

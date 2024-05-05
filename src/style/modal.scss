@@ -10,4 +10,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .modal-content {
+        width: 75%;
+        background-color: white;
+    }
 }
