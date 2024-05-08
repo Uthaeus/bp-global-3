@@ -1,17 +1,19 @@
 import { useForm } from 'react-hook-form';
-//import { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
-//import { UserContext } from '../store/user-context';
+import { UserContext } from '../store/user-context';
 
 function Contact() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    //const { user } = useContext(UserContext);
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (user) {
-    //         reset({ email: user.email, name: user.name });
-    //     }
-    // }, [user, reset]);
+    useEffect(() => {
+        if (user) {
+            reset({ email: user.email, name: user.name });
+        }
+    }, [user, reset]);
 
     const onSubmit = async (data) => {
 
@@ -19,6 +21,7 @@ function Contact() {
 
         // TODO: Send email
         reset();
+        navigate('/');
     }
 
     return (

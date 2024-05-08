@@ -60,7 +60,7 @@ function Login() {
             </form>
 
             <div className="auth-actions">
-                <button className="auth-back-btn btn btn-info" onClick={() => navigate("/")}>Home</button>
+                <button className="auth-back-btn btn btn-primary" onClick={() => navigate("/")}>Home</button>
             </div>
         </div>
     );
