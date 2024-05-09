@@ -5,11 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { UsersContext } from "../../store/users-context";
 import { OrdersContext } from "../../store/orders-context";
 
+import image from '../../assets/images/machine-main.jpeg';
+
 function OrderForm({ order }) {
     const { users } = useContext(UsersContext);
     const navigate = useNavigate();
     const [userId, setUserId] = useState("");
     const { addOrder, updateOrder } = useContext(OrdersContext);
+    const [imageUrls, setImageUrls] = useState([image]);
 
     const {
         register,
@@ -29,6 +32,16 @@ function OrderForm({ order }) {
         const newUserId = users.find((user) => user.name === event.target.value);
 
         setUserId(newUserId.id);
+    }
+
+    const addImageHandler = (event) => {
+        const file = event.target.files[0];
+        const imageUrl = URL.createObjectURL(file);
+        setImageUrls(prevState => [...prevState, imageUrl]);
+    }
+
+    const removeImageHandler = (url) => {
+        setImageUrls(prevState => prevState.filter(imageUrl => imageUrl !== url));
     }
 
     const submitHandler = (data) => {
@@ -91,9 +104,18 @@ function OrderForm({ order }) {
                 {errors.order_number && <p className="text-danger">Order Number is required</p>}
             </div>
 
-            {/* image input */}
+            <input type="file" id="image" className="form-control mb-4" accept="image/*" onChange={addImageHandler} />
 
             <button type="submit" className="btn btn-primary">{order ? "Update" : "Create"}</button>
+
+            <div className="order-form-images">
+                {imageUrls.map((imageUrl, index) => (
+                    <div className="order-form-image-item" key={index}>
+                        <img src={imageUrl} alt="order" width='100%' />
+                        <p className="btn btn-danger order-form-image-item-remove" onClick={() => removeImageHandler(imageUrl)}>X</p>
+                    </div>
+                ))}
+            </div>
         </form>
     );
 }

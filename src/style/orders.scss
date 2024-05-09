@@ -20,4 +20,23 @@
 .order-form {
     width: 70%;
     margin: 2rem auto;
+
+    .order-form-images {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+        border-top: 1px solid $silver;
+        padding-top: 2rem;
+
+        .order-form-image-item {
+            position: relative;
+
+            .order-form-image-item-remove {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
 }
